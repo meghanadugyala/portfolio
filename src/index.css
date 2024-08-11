@@ -131,3 +131,7 @@ footer {
 .maroon {
   color: #90144c;
 }
+
+html {
+  scroll-behavior: smooth;
+}

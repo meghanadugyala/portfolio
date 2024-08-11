@@ -1,9 +1,12 @@
-// src/components/Header.tsx
 import React from 'react';
 import { DockDemo } from './ui/DockPane';
 import { motion } from 'framer-motion';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  setActiveSection: (section: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ setActiveSection }) => {
   return (
     <div>
       <div className="col-span-1 md:col-span-3 mt-4 flex justify-center">
@@ -13,7 +16,7 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 20 }}
             transition={{ duration: 1 }}
           >
-            <DockDemo />
+            <DockDemo setActiveSection={setActiveSection} />
           </motion.div>
         </div>
       </div>

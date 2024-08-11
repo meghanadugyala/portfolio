@@ -1,35 +1,38 @@
 import React from "react";
 import { FaHome, FaBriefcase, FaGraduationCap, FaCogs, FaAward } from 'react-icons/fa';
 import { FaScrewdriverWrench } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
-import { Separator } from "./seperator";
 import { Dock, DockIcon } from "./Dock";
 import { IconContext } from "react-icons/lib";
+import { Separator } from "./seperator";
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
+export type IconProps = React.HTMLAttributes<HTMLDivElement>;
 
-export function DockDemo() {
+interface DockDemoProps {
+  setActiveSection: (section: string) => void;
+}
+
+export function DockDemo({ setActiveSection }: DockDemoProps) {
   return (
-    <div className="relative shadow-2xl rounded-xl"  style={{ backgroundColor: '#90144c' }}>
+    <div className="relative shadow-2xl rounded-xl" style={{ backgroundColor: '#90144c' }}>
       <Dock direction="middle">
         <DockIcon>
-          <Icons.home className="size-6" />
+          <Icons.home onClick={() => setActiveSection('hero')} />
         </DockIcon>
         <Separator orientation="vertical" className="h-full py-2 bg-white" />
         <DockIcon>
-          <Icons.experience className="size-6" />
+          <Icons.experience onClick={() => setActiveSection('experience')} />
         </DockIcon>
         <DockIcon>
-          <Icons.project className="size-6" />
+          <Icons.project onClick={() => setActiveSection('projects')} />
         </DockIcon>
         <DockIcon>
-          <Icons.education className="size-6" />
+          <Icons.education onClick={() => setActiveSection('education')} />
         </DockIcon>
         <DockIcon>
-          <Icons.skills className="size-6" />
+          <Icons.skills onClick={() => setActiveSection('skills')} />
         </DockIcon>
         <DockIcon>
-          <Icons.certifications className="size-6" />
+          <Icons.certifications onClick={() => setActiveSection('certifications')} />
         </DockIcon>
       </Dock>
     </div>
@@ -37,47 +40,46 @@ export function DockDemo() {
 }
 
 const Icons = {
-  home: (_props: IconProps) => (
-    <Link to="/" className="flex items-center hover:text-gray-400" aria-label="Home">
+  home: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Home">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaHome size={24} title="Home" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
-  experience: (_props: IconProps) => (
-    <Link to="/experience" className="flex items-center hover:text-gray-400" aria-label="Experience">
+  experience: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Experience">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaBriefcase size={24} title="Experience" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
-  project: (_props: IconProps) => (
-    <Link to="/projects" className="flex items-center hover:text-gray-400" aria-label="Projects">
+  project: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Projects">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaScrewdriverWrench size={24} title="Projects" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
-  education: (_props: IconProps) => (
-    <Link to="/education" className="flex items-center hover:text-gray-400" aria-label="Education">
+  education: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Education">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaGraduationCap size={24} title="Education" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
-  skills: (_props: IconProps) => (
-    <Link to="/skills" className="flex items-center hover:text-gray-400" aria-label="Skills">
+  skills: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Skills">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaCogs size={24} title="Skills" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
-  certifications: (_props: IconProps) => (
-    <Link to="/certifications" className="flex items-center hover:text-gray-400" aria-label="Certifications">
+  certifications: ({ onClick }: IconProps) => (
+    <div onClick={onClick} className="flex items-center hover:text-gray-400 cursor-pointer" aria-label="Certifications">
       <IconContext.Provider value={{ color: 'white' }}>
         <FaAward size={24} title="Certifications" />
       </IconContext.Provider>
-    </Link>
+    </div>
   ),
 };
-
