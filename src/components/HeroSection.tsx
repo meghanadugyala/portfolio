@@ -5,6 +5,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import TypingAnimation from './ui/TypingAnimation';
 import BoxReveal from './ui/boxReveal';
 import BlurFade, { WordPullUp, WordRotate } from './ui/BlurFade';
+import profile from '../../public/mena.png'
 
 const HeroSection: React.FC = () => {
 
@@ -34,7 +35,7 @@ const HeroSection: React.FC = () => {
       <div className="photo flex justify-center items-center bg-transparent">
         <BlurFade key={'/mena.png'} delay={1} inView>
           <img
-            src="../../public/mena.png"
+            src={profile}
             alt="Meghana Dugyala"
             className="object-cover bg-transparent"
           />
