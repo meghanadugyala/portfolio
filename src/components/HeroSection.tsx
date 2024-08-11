@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
       <div className="photo flex justify-center items-center bg-transparent">
         <BlurFade key={'/mena.png'} delay={1} inView>
           <img
-            src="/mena.png"
+            src="../../public/mena.png"
             alt="Meghana Dugyala"
             className="object-cover bg-transparent"
           />
